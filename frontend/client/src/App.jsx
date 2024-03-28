@@ -8,11 +8,14 @@ import Projects from "./pages/Projects"
 import SignIn from "./pages/SignIn"
 import Header from "./components/Header"
 
+import FooterCom from "./components/Footer"
+
 
 export default function App() {
   return (
     <BrowserRouter>
     <Header/>
+    
       <Routes>
         <Route path="/" element={<Home />}/>
         <Route path="/about" element={<About />}/>
@@ -23,6 +26,7 @@ export default function App() {
         <Route path="/projects" element={<Projects />}/>
 
       </Routes>
+      <FooterCom/>
     
     </BrowserRouter>
   )
