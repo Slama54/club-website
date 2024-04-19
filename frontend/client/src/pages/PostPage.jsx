@@ -63,7 +63,7 @@ export default function PostPage() {
     <Link to={`/search?category=${post && post.category}`} className='self-center mt-5'>
     <Button color='gray' pill size='xs'>{post && post.category}</Button>
     </Link>
-    <img src={post && post.image} alt={post && post.title} className='mt-10 p-3 max-h-[600px] w-full object-cover'/>
+    <img src={post && post.image} alt={post && post.title} className='mt-10 p-3 h-300  w-200 object-cover'/>
     <div className="flex justify-between p-3 border-b border-slate-500 mx-auto w-full max-w-2xl text-xs">
         <span>{post && new Date(post.createdAt).toLocaleDateString()}</span>
         <span className='italic'>{post && (post.content.length /1000).toFixed(0)} mins read</span>

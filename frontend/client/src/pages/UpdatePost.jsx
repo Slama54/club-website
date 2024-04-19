@@ -130,9 +130,9 @@ export default function UpdatePost() {
             value={formData.category}
           >
             <option value='uncategorized'>Select a category</option>
-            <option value='javascript'>JavaScript</option>
-            <option value='reactjs'>React.js</option>
-            <option value='nextjs'>Next.js</option>
+            <option value='results'>Results</option>
+            <option value='technicallaws'>Technical laws</option>
+            <option value='calendar'>Calendar</option>
           </Select>
         </div>
         <div className='flex gap-4 items-center justify-between border-4 border-teal-500 border-dotted p-3'>
@@ -166,7 +166,7 @@ export default function UpdatePost() {
           <img
             src={formData.image}
             alt='upload'
-            className='w-full h-72 object-cover'
+            className='w-full  object-cover'
           />
         )}
         <ReactQuill
@@ -186,6 +186,7 @@ export default function UpdatePost() {
           <Alert className='mt-5' color='failure'>
             {publishError}
           </Alert>
+          
         )}
       </form>
     </div>
