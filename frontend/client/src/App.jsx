@@ -16,6 +16,7 @@ import UpdatePost from "./pages/UpdatePost"
 import PostPage from "./pages/PostPage"
 import ScrollToTop from "./components/ScrollToTop"
 import Search from "./pages/Search"
+import CreateDocument from "./pages/CreateDocument"
 
 
 export default function App() {
@@ -42,6 +43,7 @@ export default function App() {
         <Route element={<OnlyAdminPrivateRoute/>}>
               <Route path="/create-post" element={<CreatePost />}/>
               <Route path="/update-post/:postId" element={<UpdatePost />}/>
+              <Route path="/create-document" element={<CreateDocument />}/>
         </Route>
 
         <Route path="/projects" element={<Projects />}/>

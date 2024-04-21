@@ -1,4 +1,4 @@
-import { Alert, Button, Modal, TextInput } from 'flowbite-react';
+import { Alert, Button, Modal, TextInput ,Dropdown, DropdownItem } from 'flowbite-react';
 import { useEffect, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
 import {
@@ -214,7 +214,7 @@ export default function DashProfile() {
         </div>
         {imageFileUploadError && (
           <Alert color='failure'>{imageFileUploadError}</Alert>
-        )}
+        )}  
         <TextInput
           type='text'
           id='username'
@@ -235,27 +235,33 @@ export default function DashProfile() {
           placeholder='password'
           onChange={handleChange}
         />
+        
         <Button 
         type='submit' 
         gradientDuoTone='purpleToBlue' 
-        outline
+        outline 
         disabled={loading || imageFileUploading}>
           {loading ? 'Loading ...':'Update'}
         </Button>
+        
 
-        {
-          currentUser.isAdmin && (
-            <Link to={'/create-post'}>
-                <Button 
-                type='button'
-                gradientDuoTone='purpleToPink'
-                className='w-full'
-                >
-                  Create a post
-                </Button>
+        {  currentUser.isAdmin && (
             
+            <Dropdown   label="Create" gradientDuoTone='purpleToPink'
+             dismissOnClick={false} 
+            
+            >
+
+            <Link to={'/create-post'}>  
+              <DropdownItem >Create post</DropdownItem>
             </Link>
-          )
+            <Link to={'/create-document'}>  
+              <DropdownItem>Create Document</DropdownItem>
+            </Link>
+            
+          </Dropdown>
+           )
+         
         }  
 
       </form>
