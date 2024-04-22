@@ -17,6 +17,7 @@ import PostPage from "./pages/PostPage"
 import ScrollToTop from "./components/ScrollToTop"
 import Search from "./pages/Search"
 import CreateDocument from "./pages/CreateDocument"
+import DocumentPage from "./pages/DocumentPage"
 
 
 export default function App() {
@@ -38,6 +39,7 @@ export default function App() {
         <Route element={<PrivateRoute/>}>
 
            <Route path="/dashboard" element={<Dashboard />}/>
+           <Route path="/document/:documentSlug" element={<DocumentPage/>}/>
         </Route>
 
         <Route element={<OnlyAdminPrivateRoute/>}>
