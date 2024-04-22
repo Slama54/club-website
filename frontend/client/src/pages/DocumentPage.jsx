@@ -5,13 +5,14 @@ import CallToAction from '../components/CallToAction';
 import DocumentCard from '../components/DocumentCard';
 
 
+
 export default function DocumentPage() {
     const {documentSlug} = useParams()
     const  [loading, setLoading]=useState(true)
     const [error, setError]=useState(false)
     const [pdf, setPdf]=useState(null)
     const [recentDocuments, setRecentDocuments]=useState(null)
-    //console.log(pdf.filepdf);
+ 
     useEffect(()=>{
         const fetchDocument = async ()=>{
             try {
@@ -27,7 +28,7 @@ export default function DocumentPage() {
                     setPdf(data.documents[0])
                     setLoading(false)
                     setError(false)
-                    //console.log(documment.pdffile);
+                    
                 }
                 
             } catch (error) {
@@ -53,16 +54,7 @@ export default function DocumentPage() {
         }
     },[])
    
-    function downloadFile(fileURL, fileName) {
-        if (!window.ActiveXObject && 'download' in document.createElement('a')) {
-          const link = document.createElement('a');
-          link.href = fileURL;
-          link.download = fileName;
-          link.click();
-        } else {
-          window.open(fileURL, '_blank');
-        }
-      }
+    
     
      
     if (loading)
@@ -77,6 +69,8 @@ export default function DocumentPage() {
     <Button color='gray' pill size='xs'>{pdf && pdf.category}</Button>
     
     </Link>
+    <iframe src={pdf.filepdf} className='p-4 mx-2' width="100%" height="500px" />
+  
  
     <div className="flex justify-between p-3 border-b border-slate-500 mx-auto w-full max-w-2xl text-xs">
         <span>{pdf && new Date(pdf.createdAt).toLocaleDateString()}</span>
@@ -100,7 +94,6 @@ export default function DocumentPage() {
         
       </div>
      
-     <Button onClick={()=>{downloadFile(`https://firebasestorage.googleapis.com/v0/b/mern-club.appspot.com/o/documents%2F1713717781654-coursUML11.pdf?alt=media&token=7733607d-e1d5-4ef9-a97b-b9f52ee75f68.pdf`, 'myPDF.pdf')}}></Button>
       
   </main>;
 }
