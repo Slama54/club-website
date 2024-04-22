@@ -6,6 +6,7 @@ import authRoutes from './routes/auth.route.js';
 import postRoutes from './routes/post.route.js';
 import commentRoutes from './routes/comment.route.js';
 import documentRoutes from './routes/document.route.js';
+import championRoutes from './routes/champion.router.js'
 
 import cookieParser from 'cookie-parser';
 
@@ -34,6 +35,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/post', postRoutes);
 app.use('/api/comment', commentRoutes);
 app.use('/api/document', documentRoutes);
+app.use('/api/champion', championRoutes);
 
 app.use((err, req, res, next) => {
   const statusCode = err.statusCode || 500;
