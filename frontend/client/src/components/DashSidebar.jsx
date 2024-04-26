@@ -1,5 +1,8 @@
 import { Sidebar } from 'flowbite-react';
-import { HiUser, HiArrowSmRight, HiDocumentText, HiOutlineUserGroup, HiAnnotation, HiChartPie, HiOutlineBookOpen   } from 'react-icons/hi';
+import { 
+  HiUser, HiArrowSmRight, HiDocumentText, HiOutlineUserGroup, HiAnnotation, HiChartPie, HiOutlineBookOpen   
+        } from 'react-icons/hi';
+        import { FaAward } from "react-icons/fa";
 import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { signoutSuccess } from '../redux/user/userSlice';
@@ -102,6 +105,15 @@ export default function DashSidebar() {
                   as='div'
                 >
                   Comments
+                </Sidebar.Item>
+              </Link>
+              <Link to='/dashboard?tab=champions'>
+                <Sidebar.Item
+                  active={tab === 'champions'}
+                  icon={FaAward}
+                  as='div'
+                >
+                  Champions
                 </Sidebar.Item>
               </Link>
             </>
