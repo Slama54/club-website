@@ -18,6 +18,7 @@ import ScrollToTop from "./components/ScrollToTop"
 import Search from "./pages/Search"
 import CreateDocument from "./pages/CreateDocument"
 import DocumentPage from "./pages/DocumentPage"
+import CreateChampion from "./pages/CreateChampion"
 
 
 export default function App() {
@@ -46,6 +47,8 @@ export default function App() {
               <Route path="/create-post" element={<CreatePost />}/>
               <Route path="/update-post/:postId" element={<UpdatePost />}/>
               <Route path="/create-document" element={<CreateDocument />}/>
+              <Route path="/create-champion" element={<CreateChampion />}/>
+
         </Route>
 
         <Route path="/projects" element={<Projects />}/>

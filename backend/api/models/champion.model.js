@@ -14,6 +14,10 @@ const championSchema = new mongoose.Schema(
         type: String,
         required: true,
       },
+      ChampionDate: {
+        type: Date,
+        required: true,
+      },
     title: {
       type: String,
       required: true,

@@ -40,6 +40,7 @@ export const getchampions = async (req, res , next)=>{
           { title: { $regex: req.query.searchTerm,$options: 'i'}},
           { content: { $regex: req.query.searchTerm,$options: 'i'}},
           { ChampionName: { $regex: req.query.searchTerm,$options: 'i'}},
+          { ChampionDate: { $regex: req.query.searchTerm,$options: 'i'}},
           
         ],
       }),
@@ -95,6 +96,7 @@ export const updatechampion = async (req, res, next)=>{
           category:req.body.category,
           ChampionName:req.body.ChampionName,
           image: req.body.image,
+          ChampionDate: req.body.ChampionDate,
         }
       },{new: true}
     )

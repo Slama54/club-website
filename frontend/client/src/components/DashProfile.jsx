@@ -258,6 +258,9 @@ export default function DashProfile() {
             <Link to={'/create-document'}>  
               <DropdownItem>Create Document</DropdownItem>
             </Link>
+            <Link to={'/create-champion'}>  
+              <DropdownItem>Create Champion</DropdownItem>
+            </Link>
             
           </Dropdown>
            )
