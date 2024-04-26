@@ -19,6 +19,7 @@ import Search from "./pages/Search"
 import CreateDocument from "./pages/CreateDocument"
 import DocumentPage from "./pages/DocumentPage"
 import CreateChampion from "./pages/CreateChampion"
+import ChampionPage from "./pages/ChampionPage"
 
 
 export default function App() {
@@ -53,6 +54,7 @@ export default function App() {
 
         <Route path="/projects" element={<Projects />}/>
         <Route path="/post/:postSlug" element={<PostPage/>}/>
+        <Route path="/champion/:championSlug" element={<ChampionPage/>}/>
 
       </Routes>
       <FooterCom/>
