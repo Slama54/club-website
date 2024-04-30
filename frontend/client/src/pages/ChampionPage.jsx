@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import {Link,useParams} from 'react-router-dom'
 import { Button, Spinner } from 'flowbite-react';
 import CallToAction from '../components/CallToAction';
+import ChampionsTable from '../components/ChampionsTable';
 
 
 export default function ChampionPage() {
@@ -67,6 +68,7 @@ export default function ChampionPage() {
     </div>
    
         <CallToAction />
+        <ChampionsTable/>
     
 
     
