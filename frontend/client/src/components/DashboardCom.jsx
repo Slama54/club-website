@@ -5,7 +5,10 @@ import {
     HiArrowNarrowUp,
     HiDocumentText,
     HiOutlineUserGroup,
+    HiOutlineBookOpen,
+    
   } from 'react-icons/hi';
+  import { FaAward } from "react-icons/fa";
 import { Button, Table } from "flowbite-react";
 import { Link } from "react-router-dom";
 
@@ -13,12 +16,18 @@ export default function DashboardCom() {
     const [users, setUsers]=useState([])
     const [comments, setComments]= useState([])
     const [posts, setPosts]=useState([])
+    const [champions, setChampions]= useState([])
+    const [documents, setDocuments]= useState([])
     const [totalUsers, seTotalUsers]=useState(0)
     const [totalPosts, seTotalPosts]=useState(0)
     const [totalComments, setTotalComments]=useState(0)
+    const [totalChampions, setTotalChampions]=useState(0)
+    const [totalDocuments, setTotalDocuments]=useState(0)
     const [lastMonthUsers, setLastMonthUsers]=useState(0)
     const [lastMonthPosts, setLastMonthPosts]=useState(0)
     const [lastMonthComments, setLastMonthComments]=useState(0)
+    const [lastMonthChampions, setLastMonthChampions]=useState(0)
+    const [lastMonthDocuments, setLastMonthDocuments]=useState(0)
     const {currentUser}=useSelector((state)=>state.user)
     useEffect(()=>{
         const fetchUsers = async ()=>{
@@ -63,10 +72,41 @@ export default function DashboardCom() {
                 console.log(error.message);
             }
         }
+
+        const fetchChampions = async ()=>{
+            try {
+                const res = await fetch(`/api/champion/getchampions?limit=5`)
+            const data = await res.json()
+            if (res.ok) {
+                setChampions(data.champions)
+                setTotalChampions(data.totalChampions)
+                setLastMonthChampions(data.lastMonthChampions)
+            }
+            } catch (error) {
+                console.log(error.message);
+            }
+        }
+
+
+        const fetchDocuments = async ()=>{
+            try {
+                const res = await fetch(`/api/document/getdocuments?limit=5`)
+            const data = await res.json()
+            if (res.ok) {
+                setDocuments(data.documents)
+                setTotalDocuments(data.totalDocuments)
+                setLastMonthDocuments(data.lastMonthDocuments)
+            }
+            } catch (error) {
+                console.log(error.message);
+            }
+        }
         if (currentUser.isAdmin) {
             fetchUsers()
             fetchPosts()
             fetchComments()
+            fetchChampions()
+            fetchDocuments()
         }
     },[currentUser])
   return (
@@ -115,6 +155,26 @@ export default function DashboardCom() {
                     <div className="text-gray-500">Last month</div>
                 </div>
         </div>
+        <div className="flex flex-col p-3 dark:bg-slate-800 gap-4 md:w-72 
+        w-full rounded-md shadow-md">
+            <div className="flex justify-between ">
+                <div className="">
+                    <h3 className="text-gray-500 text-md uppercase">Total champions</h3>
+                    <p className="text-2xl">{totalChampions}</p>
+                    
+                </div>
+                <FaAward className="bg-red-500  text-white 
+                    rounded-full text-5xl p-3 shadow-lg"/>
+               
+            </div>
+            <div className="flex gap-2 text-sm">
+                    <span className="text-green-500 flex items-center">
+                        <HiArrowNarrowUp/>
+                        {lastMonthChampions}
+                    </span>
+                    <div className="text-gray-500">Last month</div>
+                </div>
+        </div>
 
         
         <div className="flex flex-col p-3 dark:bg-slate-800 gap-4 md:w-72 
@@ -133,6 +193,27 @@ export default function DashboardCom() {
                     <span className="text-green-500 flex items-center">
                         <HiArrowNarrowUp/>
                         {lastMonthPosts}
+                    </span>
+                    <div className="text-gray-500">Last month</div>
+                </div>
+        </div>
+
+        <div className="flex flex-col p-3 dark:bg-slate-800 gap-4 md:w-72 
+        w-full rounded-md shadow-md">
+            <div className="flex justify-between ">
+                <div className="">
+                    <h3 className="text-gray-500 text-md uppercase">Total Documents</h3>
+                    <p className="text-2xl">{totalDocuments}</p>
+                    
+                </div>
+                <HiOutlineBookOpen className="bg-pink-500 text-white 
+                    rounded-full text-5xl p-3 shadow-lg"/>
+               
+            </div>
+            <div className="flex gap-2 text-sm">
+                    <span className="text-green-500 flex items-center">
+                        <HiArrowNarrowUp/>
+                        {lastMonthDocuments}
                     </span>
                     <div className="text-gray-500">Last month</div>
                 </div>
