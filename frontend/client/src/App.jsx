@@ -20,6 +20,7 @@ import CreateDocument from "./pages/CreateDocument"
 import DocumentPage from "./pages/DocumentPage"
 import CreateChampion from "./pages/CreateChampion"
 import ChampionPage from "./pages/ChampionPage"
+import UpdateDocument from "./pages/UpdateDocument"
 
 
 export default function App() {
@@ -48,6 +49,7 @@ export default function App() {
               <Route path="/create-post" element={<CreatePost />}/>
               <Route path="/update-post/:postId" element={<UpdatePost />}/>
               <Route path="/create-document" element={<CreateDocument />}/>
+              <Route path="/update-document/:documentId" element={<UpdateDocument />}/>
               <Route path="/create-champion" element={<CreateChampion />}/>
 
         </Route>

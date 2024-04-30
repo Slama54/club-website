@@ -78,7 +78,7 @@ export default function DocumentPage() {
        
 
     </div>
-    <div className='p-3 max-w-2xl mx-auto w-full pdf-content' dangerouslySetInnerHTML={{__html: pdf && pdf.content}}>
+    <div className='p-3 max-w-2xl mx-auto w-full post-content' dangerouslySetInnerHTML={{__html: pdf && pdf.content}}>
     
     </div>
     <div className='max-w-4xl mx-auto w-full'>
