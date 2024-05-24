@@ -22,6 +22,7 @@ import CreateChampion from "./pages/CreateChampion"
 import ChampionPage from "./pages/ChampionPage"
 import UpdateDocument from "./pages/UpdateDocument"
 import CreateGallery from "./pages/CreateGallery"
+import Gallery from "./pages/Gallery"
 
 
 export default function App() {
@@ -39,6 +40,7 @@ export default function App() {
 
         <Route path="/sign-in" element={<SignIn />}/>
         <Route path="/search" element={<Search />}/>
+        <Route path="/gallery" element={<Gallery />}/>
 
         <Route element={<PrivateRoute/>}>
 
