@@ -21,6 +21,7 @@ import DocumentPage from "./pages/DocumentPage"
 import CreateChampion from "./pages/CreateChampion"
 import ChampionPage from "./pages/ChampionPage"
 import UpdateDocument from "./pages/UpdateDocument"
+import CreateGallery from "./pages/CreateGallery"
 
 
 export default function App() {
@@ -51,6 +52,7 @@ export default function App() {
               <Route path="/create-document" element={<CreateDocument />}/>
               <Route path="/update-document/:documentId" element={<UpdateDocument />}/>
               <Route path="/create-champion" element={<CreateChampion />}/>
+              <Route path="/create-gallery" element={<CreateGallery />}/>
 
         </Route>
 
