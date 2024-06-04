@@ -77,6 +77,11 @@ export default function SignUp() {
                 <TextInput type="password" placeholder="Password" id="password"onChange={handleChange}/>
 
                </div>
+               <div >
+                <Label value="Registration Key"></Label>
+                <TextInput type="password" placeholder="Registration Key" id="registrationKey"onChange={handleChange}/>
+
+               </div>
                <Button
               gradientDuoTone='purpleToPink'
               type='submit'
